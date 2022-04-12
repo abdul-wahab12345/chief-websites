@@ -24,17 +24,17 @@ class LoginCheck
         $user = User::where([
             ['email', '=', $email],
             ['password', '=', $pass]
-        ])->get();
-
+        ])->get(); 
+    
         foreach($user as $users){
-
-        if($email == $users['email'] && $users['role_id'] == 1){
+        if($users['role_id'] == 1){
             Session::put('aid', $users['id']);
             return redirect()->route('admin');
-        } else if($email == $users['email'] && $users['role_id'] == 2){
+        } else if($users['role_id'] == 2){
             Session::put('cid', $users['id']);
             return redirect()->route('chief');
         } else {
+            
             return redirect()->route('login');
         }
 
@@ -45,7 +45,7 @@ class LoginCheck
             return redirect()->route('login');
         }else if($path == "login" && Session::get('cid')){
             return redirect()->route('chief');
-        } else if($path != "login" && !Session::get('cid')){
+        } else if($pat != "login" && !Session::get('cid')){
             return redirect()->route('login');
         }
     }

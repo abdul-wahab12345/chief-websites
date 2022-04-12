@@ -1,7 +1,78 @@
 .error{
     color: red;
 }
-
+.repeater-main {
+    width: 100%;
+}
+		.fields-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.wd-50{
+	width: calc(50% - 60px);
+	padding: 10px;
+	box-sizing: border-box;
+}
+.wd-25{
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.aw-input-wrap {
+    display: flex;
+    flex-direction: column;
+}
+.aw-input-wrap>label {
+      color: rgb(255 255 255 / 80%);
+      font-size: 18px;
+      line-height: 26px;
+      margin-bottom: 8px;
+  }
+  
+  .aw-input-wrap>.aw-input {
+      background: transparent !important;
+      border: 1px solid #C5C7D0  !important;
+      border-radius: 4px !important;
+      padding: 5px 10px !important;
+      height: 48px !important;
+      box-sizing: border-box;
+      font-size: 16px !important;
+      color: rgb(255 255 255 / 80%);
+      outline: none !important;
+  
+  }
+  .input-del{
+  	width: 60px;
+    justify-content: end;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  button.aw-del {
+    margin-bottom: 10px;
+    height: 48px;
+    border: transparent;
+    border-radius: 5px;
+    background: #d91e1e;
+    color: #fff;
+    cursor: pointer;
+}
+.aw-del>i {
+    font-size: 30px;
+    font-weight: 300;
+}
+button.btn-add-row {
+    height: 43px;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    margin: 10px;
+    background: #0085fe;
+    cursor: pointer;;
+}
 body,html{
     margin: 0;
     padding: 0;

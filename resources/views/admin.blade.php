@@ -39,6 +39,7 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Password</th>
+      <th scope="col">City</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -49,6 +50,7 @@
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->password}}</td>
+      <td>{{$user->city}}</td>
       <td>
           <form method="post" action="{{route('delete_user', $user->id)}}">
               @csrf

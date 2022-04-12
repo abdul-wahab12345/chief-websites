@@ -14,7 +14,8 @@ class LoginController extends Controller
 {
 
     public function getdata_callback(Request $req){
-        Session::flash('error', 'Email Or Password is not correct');
+       
+       Session::flash('error', 'Email Or Password is not correct');
         return redirect()->route('login');
     }
 

@@ -29,23 +29,23 @@
 
 		<div class="aw-input-group">
 			<label>Enter Username</label>
-			<input type="text" name="uname" class="aw-input" placeholder="sheraz...">
+			<input type="text" name="uname" class="aw-input" placeholder="sheraz..." required>
 		</div> <!--- ===== .aw-input-group ====== ---->
 
 		<div class="aw-input-group">
 			<label>Enter Email</label>
-			<input type="email" name="email" class="aw-input" placeholder="name@company.com">
+			<input type="email" name="email" class="aw-input" placeholder="name@company.com" required>
 		</div> <!--- ===== .aw-input-group ====== ---->
 
 		<div class="aw-input-group">
 			<label>Enter Password</label>
-			<input type="password" name="pass" class="aw-input" placeholder="Password">
+			<input type="password" name="pass" class="aw-input" placeholder="Password" required>
 		</div> <!--- ===== .aw-input-group ====== ---->
 
 		<div class="aw-input-group">
 			<label>Select Role</label>
 			<select class="aw-input" name="role">
-            <option value=""></option>
+            <option value="">Select Role</option>
             @foreach($roles as $role)
             <option value="{{$role->id}}">{{$role->name}}</option>
             @endforeach
@@ -53,6 +53,16 @@
 
 		</div>
 
+		<div class="aw-input-group">
+			<label>Select City</label>
+			<select class="aw-input" name="city">
+            <option value="">Select City</option>
+			@foreach($users as $user)
+            <option value="{{$user->city}}">{{$user->city}}</option>
+			@endforeach
+        	</select>
+
+		</div>
 		<div class="aw-input-group">
 			<input type="submit" name="add_user" value="Add User" class="aw-btn bg-btn">
 		</div> <!--- ===== .aw-input-group ====== ---->

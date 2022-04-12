@@ -21,13 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware'=>'web'], function(){
+    
+    
+    Route::group(['middleware'=>'web'], function(){
 
     Route::view('/login', 'login')->name('login');
     Route::post('/getdata', [LoginController::class, 'getdata_callback'])->name('getdata');
     Route::get('/logout', [LoginController::class, 'logout_callback'])->name('logout');
-    
-    
     Route::get('/admin', [UserController::class, 'admin_callback'])->name('admin');
     Route::post('/add_user', [UserController::class, 'add_user_callback'])->name('add_user');
     Route::post('/add_new_user', [UserController::class, 'add_new_user'])->name('add_new_user');
@@ -44,6 +44,3 @@ Route::group(['middleware'=>'web'], function(){
     Route::post('/add_new_meal', [MealController::class, 'add_new_meal_callback'])->name('add_new_meal');
 
 });
-
-
-
