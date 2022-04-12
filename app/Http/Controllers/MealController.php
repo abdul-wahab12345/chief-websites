@@ -29,9 +29,26 @@ class MealController extends Controller
         if ($validator->fails()) { 
             return $validator->errors(); 
         } */
-        DB::insert('insert into meals ( name, instrcution, expert_advice) values ( ?, ?, ?)',
-            [$req->name, $req->instruction, $req->expert_advice]);
-            return redirect()->route('show_meals');
+        $meal = DB::table('meals')->insertGetId(
+            ['name' => $req->meal_name,
+            'instrcution' => $req->instruction,
+            'expert_advice' => $req->expert_advice
+        ]
+        );
+            $id = $meal;
+
+            $ing_name = $req->name;
+            $ing_qty = $req->quantity;
+            $ing_unit = $req->unit;
+            $ing_ids = $req->ingid;
+            $weight_id = $req->weights;
+            for($i=0; $i<count($ing_name); $i++){
+                $ingredients = DB::insert('insert into Ingredients ( meal_id, ingredient_id, weights, name, quantity, unit) values ( ?, ?, ?, ?, ?, ?)',
+                [$id, $ing_ids[$i], $weight_id[$i], $ing_name[$i], $ing_qty[$i], $ing_unit[$i]]);
+                return redirect()->route('show_meals');
+            }
+            
+            
         
         
     }

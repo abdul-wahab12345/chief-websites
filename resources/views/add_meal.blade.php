@@ -58,7 +58,7 @@
         <div class="aw-input-group">
             <label>Enter Name</label>
             <input type="text"
-             name="name"
+             name="meal_name"
              class="aw-input"
              placeholder="Do you want fast food..." required>
         </div> <!--- ===== .aw-input-group ====== ---->
@@ -72,15 +72,7 @@
             <label>Enter Expert Advice</label>
             <textarea class="aw-input" name="expert_advice" placeholder="Any advice related to meal..." required></textarea>
         </div> <!--- ===== .aw-input-group ====== ---->
-
-
-        <div class="aw-input-group">
-            <input type="submit" name="add" value="Add Meal" class="aw-btn bg-btn">
-        </div> <!--- ===== .aw-input-group ====== ---->
-
-    </form><!--- ===== form ====== ---->
-    <div class="repeater-main">
-		<form action="#" method="">
+		<div class="repeater-main">
 			<div class="repeater-fields">
 				<div class="fields-wrap">
 
@@ -112,8 +104,15 @@
 
 			</div><!------ ======= repeater-fields ======== ----->
 			<button type="button" class="btn-add-row">Add Row</button>
-		</form>
 	</div><!------ ======= repeater-main ======== ----->
+
+
+        <div class="aw-input-group">
+            <input type="submit" name="add" value="Add Meal" class="aw-btn bg-btn">
+        </div> <!--- ===== .aw-input-group ====== ---->
+
+    </form><!--- ===== form ====== ---->
+    
 </div><!------========= aw-main-wrap ======------>
 
 
@@ -125,49 +124,6 @@
 
 </div><!------========= order-wrap ======------>
 </section>
-
-
-<style>
-.aw-input-wrap{position:relative;}
-.suggesstion-box-list {
-    list-style: none;
-    max-height: 235px;
-    position: absolute;
-    overflow-y: scroll;
-    z-index: 999;
-    display: none;
-    top: 90px;
-    left: 50%;
-    width: calc(100% - 20px);
-    transform: translateX(-50%);
-    border-radius: 4px;
-    box-shadow: 0 5px 10px #000;
-    background: #fff;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.suggesstion-box-list::-webkit-scrollbar {
-  width:5px;
-}
- 
-.suggesstion-box-list::-webkit-scrollbar-track {
-  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
-}
- 
-.suggesstion-box-list::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  /* outline: 1px solid slategrey; */
-}
-
-
-
-.suggesstion-box-list-ul li{padding: 10px;  border-bottom: #bbb9b9 1px solid;}
-.suggesstion-box-list-ul li:hover{background:#ece3d2;cursor: pointer!important;}
-
-</style>
-
-
 
 <script type="text/javascript">
 		$(document).ready(function(){
@@ -257,7 +213,7 @@ function get_ing( ing,input){
 
                   if(data.possibleUnits != undefined){
                     for(var i = 0; i < data.possibleUnits.length; i++){
-                      console.log(data.possibleUnits[i]);
+                     
                       var weight = data.possibleUnits[i];
 
                       html += "<option value='"+weight+"'>"+weight+"</option>";
@@ -265,8 +221,7 @@ function get_ing( ing,input){
                     }
                   }
 
-
-                 // $(input).parent().parent().find('textarea.weights').html(res).removeAttr('disabled');
+                  $(input).parent().parent().find('textarea.weights').text(JSON.stringify(res));
                   $(input).parent().parent().find('select.ing-units').html(html);
 
                });
@@ -286,7 +241,6 @@ function get_ing( ing,input){
 
 
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
 		// $.ajax({
